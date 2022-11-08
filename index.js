@@ -137,10 +137,22 @@ if (number.toString().length < 3) {
     "thousand",
     threeDigitChar(number.toString().slice(1))
   );
-} else if (number.toString().length) {
+} else if (number.toString().length === 5) {
   console.log(
     upto2Digits(number.toString().slice(0, 2)),
     "thousand",
     threeDigitChar(number.toString().slice(2))
   );
+} else if (number.toString().length === 6) {
+  if (number.toString().slice(1, 3) === undefined) {
+    console.log(first19Numbers[number.toString().charAt(0)], "lac");
+  } else {
+    console.log(
+      first19Numbers[number.toString().charAt(0)],
+      "lac",
+      upto2Digits(number.toString().slice(1, 3)),
+      "thousand",
+      threeDigitChar(number.toString().slice(3))
+    );
+  }
 }
