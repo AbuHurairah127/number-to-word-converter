@@ -144,8 +144,21 @@ if (number.toString().length < 3) {
     threeDigitChar(number.toString().slice(2))
   );
 } else if (number.toString().length === 6) {
-  if (number.toString().slice(1, 3) === undefined) {
+  if (number.toString().slice(1) === "00000") {
     console.log(first19Numbers[number.toString().charAt(0)], "lac");
+  } else if (number.toString().slice(1, 3) === "00") {
+    console.log(
+      first19Numbers[number.toString().charAt(0)],
+      "lac",
+      threeDigitChar(number.toString().slice(3))
+    );
+  } else if (number.toString().slice(3) === "000") {
+    console.log(
+      first19Numbers[number.toString().charAt(0)],
+      "lac",
+      upto2Digits(number.toString().slice(1, 3)),
+      "thousand"
+    );
   } else {
     console.log(
       first19Numbers[number.toString().charAt(0)],
