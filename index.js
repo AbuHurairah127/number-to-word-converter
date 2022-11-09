@@ -199,7 +199,7 @@ if (number.toString().length < 3) {
       threeDigitChar(number.toString().slice(4))
     );
   }
-  // numbers less than 10 crore
+  // numbers less than 10 crores
 } else if (number.toString().length === 8) {
   if (number.toString().slice(1) === "0000000") {
     console.log(first19Numbers[number.toString().charAt(0)], "crore");
