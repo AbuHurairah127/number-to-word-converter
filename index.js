@@ -127,22 +127,27 @@ const upto2Digits = (number) => {
 number = +prompt("Enter a number:");
 
 // number sending to the function and taking out put
+// number less than 100
 if (number.toString().length < 3) {
   console.log(upto2Digits(number));
+  // number less than 1000
 } else if (number.toString().length === 3) {
   console.log(threeDigitChar(number));
+  // number less than 10000
 } else if (number.toString().length === 4) {
   console.log(
     first19Numbers[number.toString().charAt(0)],
     "thousand",
     threeDigitChar(number.toString().slice(1))
   );
+  // number less than lac
 } else if (number.toString().length === 5) {
   console.log(
     upto2Digits(number.toString().slice(0, 2)),
     "thousand",
     threeDigitChar(number.toString().slice(2))
   );
+  // number less than 1000000
 } else if (number.toString().length === 6) {
   if (number.toString().slice(1) === "00000") {
     console.log(first19Numbers[number.toString().charAt(0)], "lac");
@@ -151,6 +156,62 @@ if (number.toString().length < 3) {
       first19Numbers[number.toString().charAt(0)],
       "lac",
       threeDigitChar(number.toString().slice(3))
+    );
+  } else if (number.toString().slice(3) === "000") {
+    console.log(
+      first19Numbers[number.toString().charAt(0)],
+      "lac",
+      upto2Digits(number.toString().slice(1, 3)),
+      "thousand"
+    );
+  } else {
+    console.log(
+      first19Numbers[number.toString().charAt(0)],
+      "lac",
+      upto2Digits(number.toString().slice(1, 3)),
+      "thousand",
+      threeDigitChar(number.toString().slice(3))
+    );
+  }
+  // number less than 1 crore
+} else if (number.toString().length === 7) {
+  if (number.toString().slice(2) === "00000") {
+    console.log(upto2Digits(number.toString().slice(0, 2)), "lac");
+  } else if (number.toString().slice(2, 4) === "00") {
+    console.log(
+      upto2Digits(number.toString().slice(0, 2)),
+      "lac",
+      threeDigitChar(number.toString().slice(4))
+    );
+  } else if (number.toString().slice(4) === "000") {
+    console.log(
+      upto2Digits(number.toString().slice(0, 2)),
+      "lac",
+      upto2Digits(number.toString().slice(2, 4)),
+      "thousand"
+    );
+  } else {
+    console.log(
+      upto2Digits(number.toString().slice(0, 2)),
+      "lac",
+      upto2Digits(number.toString().slice(2, 4)),
+      "thousand",
+      threeDigitChar(number.toString().slice(4))
+    );
+  }
+  // numbers less than 10 crore
+} else if (number.toString().length === 8) {
+  if (number.toString().slice(1) === "0000000") {
+    console.log(first19Numbers[number.toString().charAt(0)], "crore");
+  } else if (number.toString().slice(1, 3) === "00") {
+    console.log(
+      first19Numbers[number.toString().charAt(0)],
+      "crore",
+      upto2Digits(
+        number.toString().slice(3, 5),
+        "thousand",
+        threeDigitChar(number.toString().slice(5))
+      )
     );
   } else if (number.toString().slice(3) === "000") {
     console.log(
